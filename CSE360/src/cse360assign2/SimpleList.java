@@ -1,6 +1,7 @@
 package cse360assign2;
 
 public class SimpleList {
+	
 	private int count;
 	private int list[];
 	
@@ -20,6 +21,7 @@ public class SimpleList {
 	           list[0] = num;
 	           count++;
 	       } else {
+	    	   
 	    	   int temp[] = new int[count + count/2];
 	    	   for (int i = 0; i < count && i < count + count/2; i ++) {
 	    		   temp[i] = list[i];
@@ -41,6 +43,7 @@ public class SimpleList {
 	           }
 	           count--;
 	       } else {
+	    	   
 	           System.out.println("element not found");
 	       }
 	       
@@ -49,15 +52,16 @@ public class SimpleList {
 	    	   for (int i = 0; i < count; i ++) {
 	    		   temp[i] = list[i];
 	    	   }
-	    	   list = temp; 
-	    	   
+	    	   list = temp;     	   
 	       }
 	   }
 
 	   public int count() {
+		   
 	       return count;
 	   }
-	   public int search(int num) { // searches for number in array 
+	   public int search(int num) {// searches for number in array 
+		   
 	       int index = -1;
 	       int i = 0;
 	       while(i < count) {
@@ -68,6 +72,7 @@ public class SimpleList {
 	       }
 	       return index;
 	   }
+	   
 	   @Override
 	   public String toString() { // prints array
 		   String str = "";
@@ -78,9 +83,10 @@ public class SimpleList {
 		   }
 		   return str;	   
 	   }
+	   
 	   public int first() { // returns first number in array
 	        if (count == 0) {
-	             throw new RuntimeException("list is empty");
+	             throw new RuntimeException("list is empty!");
 	        }
 	        return list[0];
 	    }
