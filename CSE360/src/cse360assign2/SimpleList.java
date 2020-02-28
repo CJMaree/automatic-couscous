@@ -72,7 +72,12 @@ public class SimpleList {
 			   str += list[index] + ", ";
 			   index++;
 		   }
-		   return str;
-		   
+		   return str;	   
 	   }
+	   public int first() {
+	        if (count == 0) {
+	             throw new RuntimeException("list is empty!");
+	        }
+	        return list[0];
+	    }
 }
