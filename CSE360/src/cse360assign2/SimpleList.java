@@ -45,7 +45,11 @@ public class SimpleList {
 	       }
 	       
 	       if (count < 3*list.length/4) { // if the count is less then 75% capacity 
-	    	   
+	    	   int temp[] = new int[count]; // decreases size to count
+	    	   for (int i = 0; i < count; i ++) {
+	    		   temp[i] = list[i];
+	    	   }
+	    	   list = temp; 
 	    	   
 	       }
 	   }
@@ -53,7 +57,7 @@ public class SimpleList {
 	   public int count() {
 	       return count;
 	   }
-	   public int search(int num) {
+	   public int search(int num) { // searches for number in array 
 	       int index = -1;
 	       int i = 0;
 	       while(i < count) {
@@ -65,7 +69,7 @@ public class SimpleList {
 	       return index;
 	   }
 	   @Override
-	   public String toString() {
+	   public String toString() { // prints array
 		   String str = "";
 		   int index = 0;
 		   while (index != count) {
@@ -74,10 +78,26 @@ public class SimpleList {
 		   }
 		   return str;	   
 	   }
-	   public int first() {
+	   public int first() { // returns first number in array
 	        if (count == 0) {
-	             throw new RuntimeException("list is empty!");
+	             throw new RuntimeException("list is empty");
 	        }
 	        return list[0];
+	    }
+	   
+	   public int size() { // size of the array
+	        return list.length;
+	    }
+	   
+	   public void append(int num) {
+	        if (count == list.length) { // if the array is full increase size by 50%
+	        	int temp[] = new int[count + count/2];
+		    	   for (int i = 0; i < count && i < count + count/2; i ++) {
+		    		   temp[i] = list[i];
+		    		   }
+		    	   list = temp;   
+		    	  }
+	        list[count] = num;
+	        count++;
 	    }
 }
